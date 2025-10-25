@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "Get user progress",
+      "method": "GET",
+      "path": "/?user_id=1",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "user": "object",
+        "topics": "array",
+        "achievements": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Add XP to user",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "action": "add_xp",
+        "user_id": 1,
+        "xp": 50
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "xp": "number",
+        "level": "number"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

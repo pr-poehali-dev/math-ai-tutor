@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "Test chat endpoint with message",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "user_id": 1,
+        "message": "Реши уравнение: 2x + 5 = 15"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "response": "string",
+        "user_id": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing message error",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "user_id": 1
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
